@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>中文版的VOICETUBE final rwd boot-5</title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lobster"rel="stylesheet'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  
+<div id="app1">
+  <div class="top">
+    <div class="brand">Chinese Tube</div>
+    <button class="btn btn-default" type="submit">Submit
+      <input type="text" placeholder="Search"/>
+    </button>
+  </div>
+  <div class="mid"></div>
+  <div class="row">
+    <div class="side col-lg-2 col-xs-12">
+      <div class="row">
+        <div class="rect1 col-lg-10 col-xs-3"> 
+          <div class="title">LISTENING</div>
+        </div>
+        <div class="rect2 col-lg-10 col-xs-3"> 
+          <div class="title">LEVEL</div>
+        </div>
+        <div class="rect3 col-lg-10 col-xs-3"> 
+          <div class="title">COMMUNITY</div>
+        </div>
+        <div class="rect4 col-lg-10 col-xs-3"> 
+          <div class="title">CONTACT</div>
+        </div>
+      </div>
+    </div>
+    <div class="containertop col-lg-10 col-xs-12">   
+      <div class="row">
+        <div class="right col-lg-7 col-xs-12">
+          <div class="if" v-if="video==0">
+            <iframe id="video" v-bind:src="'https://www.youtube.com/embed/WmokF1c7DD8?real=0&amp;start='+videoid" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+          </div>
+          <div class="if" v-if="video==1">
+            <iframe id="video" v-bind:src="'https://www.youtube.com/embed/WmokF1c7DD8?real=0&amp;autoplay=1&amp;start='+videoid" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+          </div>
+          <div class="title col-lg-7 col-xs-12">空姐忙什麼 029 我不要把椅背豎直啦!
+            <div class="subtitle">Kōngjiě máng shénme 029 wǒ bùyào bǎ yǐ bèi shù zhí la!</div>
+            <div class="subtitlen">BUSYCABINCREW 029 I don't want to straighten my seat!</div>
+          </div>
+        </div>
+        <div class="left col-lg-5 col-xs-12">
+          <div class="block1">
+            <div class="sentenceblock" v-for="(id,sentence) in sentences">     
+              <div class="if"><img class="player" v-on:click="play(id)" src="http://www.shejiye.com/uploadfile/icon/2017/0203/shejiyeicon3z2ubljqgx0.png"/>
+                <div class="rightout" v-on:click="trans(id)">
+                  <div class="sentenceout">{{sentence.chinese}}</div>
+                  <div class="subsentenceout">{{sentence.pinyin}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block2">
+            <div class="trans" v-if="tran==1">
+              <div class="chinese">{{chinese_trans}}</div><img v-on:click="audio()" src="http://www.holy.org.tw/g/driver/drivers/500px-Speaker_Icon_svg.png"/>
+              <div class="pinyin">1.Chinese Pinyin: </div>
+              <div class="pinyin_p">&nbsp&nbsp&nbsp {{pinyin_trans}}                </div>
+              <div class="english">2.English translation:</div>
+              <div class="english_p">&nbsp&nbsp&nbsp {{english_trans}}</div>
+              <div class="word">3.keyword:</div>
+              <div class="word_p" v-for="keyword in keywords_trans">&nbsp&nbsp&nbsp {{keyword}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="containerdown"> 
+    <div class="row">
+      <div class="side col-lg-2 col-xs-0"></div>
+      <div class="bottom col-lg-10 col-xs-12">
+        <div class="keywords_all"><img class="leaf" src="http://www.shejiye.com/uploadfile/icon/2017/0203/shejiyeicon2lbgzgswxzm.png"/>
+          <div class="wordtitle">Keywords from video</div><br/>
+          <div class="buttongroup2">
+            <div class="button" id="tai" v-on:click="tai()">Elementary </div>
+            <div class="button" id="chi" v-on:click="chi()">Advanced </div>
+          </div>
+          <div class="row">
+            <div class="wordtable col-lg-10 col-md-12 col-sm-12 col-xs-12">
+              <div v-if="test_type=='tai'"> 
+                <div v-for="(id,keyword) in tai_keywords">
+                  <div class="word"> {{id+1}}.{{keyword.word}}<img v-on:click="audiotai(id)" src="http://www.holy.org.tw/g/driver/drivers/500px-Speaker_Icon_svg.png"/>
+                    <div class="explain">{{keyword.english}} </div>
+                  </div>
+                </div>
+              </div>
+              <div v-if="test_type=='chi'"> 
+                <div v-for="(id,keyword) in chi_keywords">
+                  <div class="word"> {{id+1}}.{{keyword.word}}<img v-on:click="audiochi(id)" src="http://www.holy.org.tw/g/driver/drivers/500px-Speaker_Icon_svg.png"/>
+                    <div class="explain">{{keyword.english}} </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="containerbottom">
+    <div class="title">If you want to know more about the product,please click the button.<a class="button" href="http://chinesetubeaction.herokuapp.com/" target="new">click</a></div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
