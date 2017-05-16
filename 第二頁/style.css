@@ -1,0 +1,51 @@
+@charset "UTF-8";
+* {
+  font-family: 微軟正黑體;
+}
+
+html, body {
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  background-image: url("https://slidearttoasters.files.wordpress.com/2013/01/6c038-0-2.jpg");
+}
+
+.title {
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-align: center;
+  box-sizing: border-box;
+  background-image: url("https://slidearttoasters.files.wordpress.com/2013/01/6c038-0-2.jpg");
+}
+.title .button {
+  border-radius: 5px;
+  border: solid 1px white;
+  box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5);
+  padding: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+  margin-top: 30px;
+  letter-spacing: 2px;
+  display: inline-block;
+  visibility: visible;
+  text-decoration: none;
+}
+.title .button:hover {
+  background-color: #F7A800;
+  color: white;
+  border: solid 1px #F7A800;
+}
+
+iframe {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 100%;
+  visibility: hidden;
+}
