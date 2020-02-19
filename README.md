@@ -7,4 +7,4 @@ codepen : https://codepen.io/jk2626173jk-the-sans/pen/XWbKobN
 
 參考圖片:
 
-![image](https://github.com/jk2626173jk/chickenattract/blob/master/chickenattract.PNG)
+![image](https://github.com/jk2626173jk/Chinese-Tube/blob/master/chiense_tube.png)
