@@ -3,4 +3,8 @@
 
 工具有: html,css,js,vue.js,bootstraps
 
-連結:http://chinesetube.herokuapp.com/
+codepen : https://codepen.io/jk2626173jk-the-sans/pen/XWbKobN
+
+參考圖片:
+
+![image](https://github.com/jk2626173jk/chickenattract/blob/master/chickenattract.PNG)
